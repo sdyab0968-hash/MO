@@ -95,20 +95,20 @@ TabBar.BackgroundTransparency = 1
 TabBar.Parent = MainFrame
 
 local Tab1Button = Instance.new("TextButton")
-Tab1Button.Size = UDim2.new(0.24, -4, 1, 0)
+Tab1Button.Size = UDim2.new(0.16, -2, 1, 0)
 Tab1Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10)
 Tab1Button.Text = "الوصف✨️"
 Tab1Button.TextColor3 = Color3.fromRGB(255, 255, 255)
 Tab1Button.Font = Enum.Font.GothamBold
-Tab1Button.TextSize = 9
+Tab1Button.TextSize = 8
 Tab1Button.Parent = TabBar
 Instance.new("UICorner", Tab1Button).CornerRadius = UDim.new(0, 5)
 
 local Tab2Button = Instance.new("TextButton")
-Tab2Button.Size = UDim2.new(0.21, -4, 1, 0)
-Tab2Button.Position = UDim2.new(0.24, 2, 0, 0)
+Tab2Button.Size = UDim2.new(0.16, -2, 1, 0)
+Tab2Button.Position = UDim2.new(0.16, 2, 0, 0)
 Tab2Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5)
-Tab2Button.Text = "سبام قوي⭐️"
+Tab2Button.Text = "سبام💥"
 Tab2Button.TextColor3 = Color3.fromRGB(180, 100, 100)
 Tab2Button.Font = Enum.Font.GothamBold
 Tab2Button.TextSize = 8
@@ -116,10 +116,10 @@ Tab2Button.Parent = TabBar
 Instance.new("UICorner", Tab2Button).CornerRadius = UDim.new(0, 5)
 
 local Tab3Button = Instance.new("TextButton")
-Tab3Button.Size = UDim2.new(0.21, -4, 1, 0)
-Tab3Button.Position = UDim2.new(0.45, 4, 0, 0)
+Tab3Button.Size = UDim2.new(0.16, -2, 1, 0)
+Tab3Button.Position = UDim2.new(0.32, 4, 0, 0)
 Tab3Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5)
-Tab3Button.Text = "👤 سكنات بنات واولاد✨"
+Tab3Button.Text = "👤 سكنات✨"
 Tab3Button.TextColor3 = Color3.fromRGB(180, 100, 100)
 Tab3Button.Font = Enum.Font.GothamBold
 Tab3Button.TextSize = 8
@@ -127,10 +127,10 @@ Tab3Button.Parent = TabBar
 Instance.new("UICorner", Tab3Button).CornerRadius = UDim.new(0, 5)
 
 local Tab4Button = Instance.new("TextButton")
-Tab4Button.Size = UDim2.new(0.19, -4, 1, 0)
-Tab4Button.Position = UDim2.new(0.66, 6, 0, 0)
+Tab4Button.Size = UDim2.new(0.16, -2, 1, 0)
+Tab4Button.Position = UDim2.new(0.48, 6, 0, 0)
 Tab4Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5)
-Tab4Button.Text = "🛡️ logs & clogs حماية"
+Tab4Button.Text = "🛡️ حماية"
 Tab4Button.TextColor3 = Color3.fromRGB(180, 100, 100)
 Tab4Button.Font = Enum.Font.GothamBold
 Tab4Button.TextSize = 8
@@ -138,8 +138,8 @@ Tab4Button.Parent = TabBar
 Instance.new("UICorner", Tab4Button).CornerRadius = UDim.new(0, 5)
 
 local Tab5Button = Instance.new("TextButton")
-Tab5Button.Size = UDim2.new(0.15, 0, 1, 0)
-Tab5Button.Position = UDim2.new(0.85, 8, 0, 0)
+Tab5Button.Size = UDim2.new(0.16, -2, 1, 0)
+Tab5Button.Position = UDim2.new(0.64, 8, 0, 0)
 Tab5Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5)
 Tab5Button.Text = "التايتل✨️"
 Tab5Button.TextColor3 = Color3.fromRGB(180, 100, 100)
@@ -147,6 +147,17 @@ Tab5Button.Font = Enum.Font.GothamBold
 Tab5Button.TextSize = 8
 Tab5Button.Parent = TabBar
 Instance.new("UICorner", Tab5Button).CornerRadius = UDim.new(0, 5)
+
+local Tab6Button = Instance.new("TextButton")
+Tab6Button.Size = UDim2.new(0.16, 0, 1, 0)
+Tab6Button.Position = UDim2.new(0.80, 10, 0, 0)
+Tab6Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5)
+Tab6Button.Text = "✍️ سبام خاص"
+Tab6Button.TextColor3 = Color3.fromRGB(180, 100, 100)
+Tab6Button.Font = Enum.Font.GothamBold
+Tab6Button.TextSize = 8
+Tab6Button.Parent = TabBar
+Instance.new("UICorner", Tab6Button).CornerRadius = UDim.new(0, 5)
 
 -- [ دالة الإرسال المباشر ]
 local function fireGiantPayload(giantMessage)
@@ -302,23 +313,30 @@ QuickCommandsButton.Size = UDim2.new(1, 0, 0, 40)
 QuickCommandsButton.Position = UDim2.new(0, 0, 0, 160)
 QuickCommandsButton.BackgroundColor3 = Color3.fromRGB(80, 0, 0)
 QuickCommandsButton.Font = Enum.Font.GothamBold
-QuickCommandsButton.Text = "سبام يلعن ابو الاعب🎭"
+QuickCommandsButton.Text = "سبام يلعن الاعب🎭"
 QuickCommandsButton.TextColor3 = Color3.fromRGB(255, 200, 200)
 QuickCommandsButton.TextSize = 11
 QuickCommandsButton.Parent = Tab2Frame
 Instance.new("UICorner", QuickCommandsButton).CornerRadius = UDim.new(0, 8)
 
+local InfoText = Instance.new("TextLabel")
+InfoText.Size = UDim2.new(1, 0, 0, 20)
+InfoText.Position = UDim2.new(0, 0, 0, 205)
+InfoText.BackgroundTransparency = 1
+InfoText.Text = "رح يتم اضافة سبامات اكثر مستقبلاً."
+InfoText.TextColor3 = Color3.fromRGB(200, 200, 200)
+InfoText.Font = Enum.Font.Gotham
+InfoText.TextSize = 10
+InfoText.Parent = Tab2Frame
+
 local isQuickSpamming = false
 QuickCommandsButton.MouseButton1Click:Connect(function()
     local targetPlayer = NameInput.Text
     if targetPlayer == "" then return end
-    
     isQuickSpamming = not isQuickSpamming
-    
     if isQuickSpamming then
         QuickCommandsButton.Text = "🛑 إيقاف السبام..."
         QuickCommandsButton.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
-        
         task.spawn(function()
             local cmds = ";phase ;jump ;ice ;jail ;nv ;re ;logs ;clogs ;fling ;res"
             local cmdList = {}
@@ -326,14 +344,13 @@ QuickCommandsButton.MouseButton1Click:Connect(function()
                 table.insert(cmdList, command .. " " .. targetPlayer)
             end
             local payload = table.concat(cmdList, " ")
-            
             while isQuickSpamming do
                 fireGiantPayload(payload)
                 task.wait(0.1)
             end
         end)
     else
-        QuickCommandsButton.Text = "سبام يلعن ابو الاعب🎭"
+        QuickCommandsButton.Text = "سبام يلعن الاعب🎭"
         QuickCommandsButton.BackgroundColor3 = Color3.fromRGB(80, 0, 0)
     end
 end)
@@ -356,7 +373,7 @@ local CleanerDescLabel = Instance.new("TextLabel")
 CleanerDescLabel.Size = UDim2.new(1, -30, 0, 90)
 CleanerDescLabel.Position = UDim2.new(0, 15, 0, 15)
 CleanerDescLabel.BackgroundTransparency = 1
-CleanerDescLabel.Text = "[ MOILA933 ]\n\nاضغط على الزر أدناه لتفعيل الحماية الكاملة من الـ logs والـ clogs ومنع كشف الأوامر."
+CleanerDescLabel.Text = "logs و clogs اذا ضغطت على الزر الي تحت رح تجيك حماية من"
 CleanerDescLabel.TextColor3 = Color3.fromRGB(200, 255, 200)
 CleanerDescLabel.Font = Enum.Font.GothamBold
 CleanerDescLabel.TextSize = 13
@@ -418,18 +435,19 @@ TitleContainer.Parent = Tab5Frame
 Instance.new("UICorner", TitleContainer).CornerRadius = UDim.new(0, 10)
 
 local TitleDescLabel = Instance.new("TextLabel")
-TitleDescLabel.Size = UDim2.new(1, -30, 0, 30)
+TitleDescLabel.Size = UDim2.new(1, -30, 0, 45)
 TitleDescLabel.Position = UDim2.new(0, 15, 0, 10)
 TitleDescLabel.BackgroundTransparency = 1
-TitleDescLabel.Text = "رح يطلع الاسم في التايتل❗️"
+TitleDescLabel.Text = "ملاحظة مهمة: ترا اذا كتبت سب رح يطلع حتى لو طويل لان هي خاصيته وشكراً🫡"
 TitleDescLabel.TextColor3 = Color3.fromRGB(255, 100, 100)
 TitleDescLabel.Font = Enum.Font.GothamBold
-TitleDescLabel.TextSize = 13
+TitleDescLabel.TextSize = 12
+TitleDescLabel.TextWrapped = true
 TitleDescLabel.Parent = TitleContainer
 
 local TitleInput = Instance.new("TextBox")
 TitleInput.Size = UDim2.new(0.85, 0, 0, 38)
-TitleInput.Position = UDim2.new(0.075, 0, 0.3, 0)
+TitleInput.Position = UDim2.new(0.075, 0, 0.4, 0)
 TitleInput.BackgroundColor3 = Color3.fromRGB(40, 0, 5)
 TitleInput.BackgroundTransparency = 0.5
 TitleInput.Font = Enum.Font.Gotham
@@ -443,10 +461,10 @@ Instance.new("UICorner", TitleInput).CornerRadius = UDim.new(0, 6)
 
 local ApplyButton = Instance.new("TextButton")
 ApplyButton.Size = UDim2.new(0.85, 0, 0, 42)
-ApplyButton.Position = UDim2.new(0.075, 0, 0.62, 0)
+ApplyButton.Position = UDim2.new(0.075, 0, 0.72, 0)
 ApplyButton.BackgroundColor3 = Color3.fromRGB(180, 0, 30)
 ApplyButton.Font = Enum.Font.GothamBold
-ApplyButton.Text = "اضغط لتشغيل التايتل💥"
+ApplyButton.Text = "اضغط هنا لتفعيل الاسم💥"
 ApplyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ApplyButton.TextSize = 13
 ApplyButton.Parent = TitleContainer
@@ -460,7 +478,7 @@ ApplyButton.MouseButton1Click:Connect(function()
     if rgbConnection then rgbConnection:Disconnect() end
     isRunning = true
     ApplyButton.Text = "تم التفعيل بنجاح! ⚡"
-    task.delay(1.5, function() if isRunning then ApplyButton.Text = "اضغط لتشغيل التايتل💥" end end)
+    task.delay(1.5, function() if isRunning then ApplyButton.Text = "تحديث اللقب" end end)
     local speed = 0.5 
     rgbConnection = RunService.Heartbeat:Connect(function()
         local hue = (tick() * speed) % 1
@@ -470,19 +488,71 @@ ApplyButton.MouseButton1Click:Connect(function()
     end)
 end)
 
-local BaseCommands = { ";nv", ";re", ";res", ";kill", ";logs", ";clogs" }
+-- [ Tab 6 ]
+local Tab6Frame = Instance.new("Frame")
+Tab6Frame.Size = UDim2.new(1, -24, 1, -85)
+Tab6Frame.Position = UDim2.new(0, 12, 0, 75)
+Tab6Frame.BackgroundTransparency = 1
+Tab6Frame.Visible = false
+Tab6Frame.Parent = MainFrame
 
-ToggleButton.MouseButton1Click:Connect(function()
-	MainFrame.Visible = not MainFrame.Visible
+local CustomSpamContainer = Instance.new("Frame")
+CustomSpamContainer.Size = UDim2.new(1, 0, 1, 0)
+CustomSpamContainer.BackgroundColor3 = Color3.fromRGB(10, 2, 2)
+CustomSpamContainer.BackgroundTransparency = 0.6
+CustomSpamContainer.Parent = Tab6Frame
+Instance.new("UICorner", CustomSpamContainer).CornerRadius = UDim.new(0, 10)
+
+local CustomInput = Instance.new("TextBox")
+CustomInput.Size = UDim2.new(0.9, 0, 0, 60)
+CustomInput.Position = UDim2.new(0.05, 0, 0.1, 0)
+CustomInput.BackgroundColor3 = Color3.fromRGB(40, 0, 5)
+CustomInput.BackgroundTransparency = 0.3
+CustomInput.PlaceholderText = "أكتب هنا الي بدك ياه🫡"
+CustomInput.Text = ""
+CustomInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+CustomInput.Font = Enum.Font.Gotham
+CustomInput.TextSize = 14
+CustomInput.Parent = CustomSpamContainer
+Instance.new("UICorner", CustomInput).CornerRadius = UDim.new(0, 8)
+
+local CustomActionButton = Instance.new("TextButton")
+CustomActionButton.Size = UDim2.new(0.9, 0, 0, 50)
+CustomActionButton.Position = UDim2.new(0.05, 0, 0.5, 0)
+CustomActionButton.BackgroundColor3 = Color3.fromRGB(140, 0, 0)
+CustomActionButton.Text = "🚀 تفعيل السبام الخاص"
+CustomActionButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CustomActionButton.Font = Enum.Font.GothamBold
+CustomActionButton.Parent = CustomSpamContainer
+Instance.new("UICorner", CustomActionButton).CornerRadius = UDim.new(0, 8)
+
+local isCustomSpamming = false
+CustomActionButton.MouseButton1Click:Connect(function()
+    isCustomSpamming = not isCustomSpamming
+    if isCustomSpamming then
+        CustomActionButton.Text = "🛑 إيقاف"
+        task.spawn(function()
+            while isCustomSpamming do
+                if HDAdminRemote and HDAdminRemote:IsA("RemoteFunction") then
+                    local args = {[1] = CustomInput.Text}
+                    HDAdminRemote:InvokeServer(unpack(args))
+                end
+                task.wait(0.1)
+            end
+        end)
+    else
+        CustomActionButton.Text = "🚀 تفعيل السبام الخاص"
+    end
 end)
 
+-- [ منطق التنقل ]
 local function resetTabs()
-	Tab1Frame.Visible = false; Tab2Frame.Visible = false; Tab3Frame.Visible = false; Tab4Frame.Visible = false; Tab5Frame.Visible = false
-	Tab1Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5); Tab1Button.TextColor3 = Color3.fromRGB(180, 100, 100)
-	Tab2Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5); Tab2Button.TextColor3 = Color3.fromRGB(180, 100, 100)
-	Tab3Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5); Tab3Button.TextColor3 = Color3.fromRGB(180, 100, 100)
-	Tab4Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5); Tab4Button.TextColor3 = Color3.fromRGB(180, 100, 100)
-	Tab5Button.BackgroundColor3 = Color3.fromRGB(30, 5, 5); Tab5Button.TextColor3 = Color3.fromRGB(180, 100, 100)
+	Tab1Frame.Visible = false; Tab2Frame.Visible = false; Tab3Frame.Visible = false; Tab4Frame.Visible = false; Tab5Frame.Visible = false; Tab6Frame.Visible = false
+	local btns = {Tab1Button, Tab2Button, Tab3Button, Tab4Button, Tab5Button, Tab6Button}
+	for _, btn in pairs(btns) do
+		btn.BackgroundColor3 = Color3.fromRGB(30, 5, 5)
+		btn.TextColor3 = Color3.fromRGB(180, 100, 100)
+	end
 end
 
 Tab1Button.MouseButton1Click:Connect(function() resetTabs(); Tab1Frame.Visible = true; Tab1Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10); Tab1Button.TextColor3 = Color3.fromRGB(255, 255, 255) end)
@@ -490,6 +560,7 @@ Tab2Button.MouseButton1Click:Connect(function() resetTabs(); Tab2Frame.Visible =
 Tab3Button.MouseButton1Click:Connect(function() resetTabs(); Tab3Frame.Visible = true; Tab3Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10); Tab3Button.TextColor3 = Color3.fromRGB(255, 255, 255) end)
 Tab4Button.MouseButton1Click:Connect(function() resetTabs(); Tab4Frame.Visible = true; Tab4Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10); Tab4Button.TextColor3 = Color3.fromRGB(255, 255, 255) end)
 Tab5Button.MouseButton1Click:Connect(function() resetTabs(); Tab5Frame.Visible = true; Tab5Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10); Tab5Button.TextColor3 = Color3.fromRGB(255, 255, 255) end)
+Tab6Button.MouseButton1Click:Connect(function() resetTabs(); Tab6Frame.Visible = true; Tab6Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10); Tab6Button.TextColor3 = Color3.fromRGB(255, 255, 255) end)
 
 local function updatePlayerList()
 	for _, child in pairs(PlayersScroll:GetChildren()) do if child:IsA("TextButton") then child:Destroy() end end
@@ -510,28 +581,4 @@ Players.PlayerAdded:Connect(updatePlayerList)
 Players.PlayerRemoving:Connect(updatePlayerList)
 updatePlayerList()
 
-local isSpamming = false
-ActionButton.MouseButton1Click:Connect(function()
-	local targetPlayer = NameInput.Text
-	if targetPlayer == "" then return end
-	if isSpamming then
-		isSpamming = false
-		ActionButton.Text = "⚡ LAUNCH MOILA933 SYSTEM ⚡"
-	else
-		isSpamming = true
-		ActionButton.Text = "🛑 HALT PAYLOAD"
-		task.spawn(function()
-			while isSpamming do
-				local megaPayloadTable = {}
-				for i = 1, 5 do
-					for _, cmd in ipairs(BaseCommands) do
-						table.insert(megaPayloadTable, cmd .. " " .. targetPlayer)
-					end
-				end
-				local giantMessage = table.concat(megaPayloadTable, " ") 
-				fireGiantPayload(giantMessage)
-				task.wait(0.1)
-			end
-		end)
-	end
-end)
+ToggleButton.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
