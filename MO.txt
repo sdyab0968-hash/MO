@@ -234,11 +234,17 @@ for i = 1, #HiddenSkinData do
 	Instance.new("UICorner", SkinButton).CornerRadius = UDim.new(0, 6)
 	
 	SkinButton.MouseButton1Click:Connect(function()
-		if HDAdminRemote and HDAdminRemote:IsA("RemoteFunction") then
-			task.spawn(function()
-				HDAdminRemote:InvokeServer(data.Command)
+		local command = data.Command
+		task.spawn(function()
+			pcall(function()
+				game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("DataService"):FireServer(command)
 			end)
-		end
+		end)
+		task.spawn(function()
+			pcall(function()
+				game:GetService("ReplicatedStorage"):WaitForChild("HDAdminHDClient"):WaitForChild("Signals"):WaitForChild("RequestCommandModification"):InvokeServer(command)
+			end)
+		end)
 	end)
 end
 
@@ -573,7 +579,7 @@ local function updatePlayerList()
 		pButton.Size = UDim2.new(0, 95, 0, 30)
 		pButton.BackgroundColor3 = Color3.fromRGB(60, 10, 10)
 		pButton.Text = player.Name
-		pButton.TextColor3 = Color3.fromRGB(255, 200, 200)
+		pButton.TextColor3 = Color3.fromRGB(100, 255, 100)
 		pButton.Font = Enum.Font.GothamSemibold
 		pButton.TextSize = 10
 		Instance.new("UICorner", pButton).CornerRadius = UDim.new(0, 6)
