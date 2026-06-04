@@ -327,7 +327,7 @@ ActionButton.MouseButton1Click:Connect(function()
         ActionButton.Text = "🛑 إيقاف السبام..."
         ActionButton.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
         task.spawn(function()
-            local cmds = ";phase ;jump ;ice ;jail ;nv ;re ;logs ;clogs ;fling ;res"
+            local cmds = ";re ;nv ;res ;logs ;clogs ;kill ;re ;nv ;res ;logs ;clogs ;kill ;re ;nv ;res ;logs ;clogs ;kill ;re ;nv ;res ;logs ;clogs ;kill ;re ;nv ;res ;logs ;clogs ;kill ;re ;nv ;res ;logs ;clogs ;kill ;re ;nv ;res ;logs ;clogs ;kill ;re ;nv ;res ;logs ;clogs ;kill"
             local cmdList = {}
             for command in cmds:gmatch("%S+") do
                 table.insert(cmdList, command .. " " .. targetPlayer)
@@ -344,27 +344,69 @@ ActionButton.MouseButton1Click:Connect(function()
     end
 end)
 
-local QuickCommandsButton = Instance.new("TextButton")
-QuickCommandsButton.Size = UDim2.new(1, 0, 0, 40)
-QuickCommandsButton.Position = UDim2.new(0, 0, 0, 160)
-QuickCommandsButton.BackgroundColor3 = Color3.fromRGB(80, 0, 0)
-QuickCommandsButton.Font = Enum.Font.GothamBold
-QuickCommandsButton.Text = "سبام يلعن الاعب🎭"
-QuickCommandsButton.TextColor3 = Color3.fromRGB(255, 200, 200)
-QuickCommandsButton.TextSize = 11
-QuickCommandsButton.Parent = Tab2Frame
-Instance.new("UICorner", QuickCommandsButton).CornerRadius = UDim.new(0, 8)
+local SecondSpamButton = Instance.new("TextButton")
+SecondSpamButton.Size = UDim2.new(1, 0, 0, 40)
+SecondSpamButton.Position = UDim2.new(0, 0, 0, 160)
+SecondSpamButton.BackgroundColor3 = Color3.fromRGB(80, 0, 0)
+SecondSpamButton.Font = Enum.Font.GothamBold
+SecondSpamButton.Text = "سبام الأوامر 2 🎭"
+SecondSpamButton.TextColor3 = Color3.fromRGB(255, 200, 200)
+SecondSpamButton.TextSize = 11
+SecondSpamButton.Parent = Tab2Frame
+Instance.new("UICorner", SecondSpamButton).CornerRadius = UDim.new(0, 8)
 
-local InfoText = Instance.new("TextLabel")
-InfoText.Size = UDim2.new(1, 0, 0, 20)
-InfoText.Position = UDim2.new(0, 0, 0, 205)
-InfoText.BackgroundTransparency = 1
-InfoText.Text = "رح يتم اضافة سبامات اكثر مستقبلاً."
-InfoText.TextColor3 = Color3.fromRGB(200, 200, 200)
-InfoText.Font = Enum.Font.Gotham
-InfoText.TextSize = 10
-InfoText.Parent = Tab2Frame
+local isSecondSpamming = false
+SecondSpamButton.MouseButton1Click:Connect(function()
+    local targetPlayer = NameInput.Text
+    if targetPlayer == "" then return end
+    isSecondSpamming = not isSecondSpamming
+    if isSecondSpamming then
+        SecondSpamButton.Text = "🛑 إيقاف"
+        task.spawn(function()
+            local cmds = ";jump ;res ;char miri ;ice ;dog ;nv ;logs"
+            local cmdList = {}
+            for command in cmds:gmatch("%S+") do
+                table.insert(cmdList, command .. " " .. targetPlayer)
+            end
+            local payload = table.concat(cmdList, " ")
+            while isSecondSpamming do
+                fireGiantPayload(payload)
+                task.wait(0.1)
+            end
+        end)
+    else
+        SecondSpamButton.Text = "سبام الأوامر 2 🎭"
+    end
+end)
 
+-- [ منطق تحديث القائمة مع الألوان المتغيرة ]
+local function updatePlayerList()
+	for _, child in pairs(PlayersScroll:GetChildren()) do if child:IsA("TextButton") then child:Destroy() end end
+	for _, player in pairs(Players:GetPlayers()) do
+		local pButton = Instance.new("TextButton")
+		pButton.Size = UDim2.new(0, 95, 0, 30)
+		pButton.BackgroundColor3 = Color3.fromRGB(60, 10, 10)
+		pButton.Text = player.Name
+		pButton.Font = Enum.Font.GothamSemibold
+		pButton.TextSize = 10
+		Instance.new("UICorner", pButton).CornerRadius = UDim.new(0, 6)
+		pButton.MouseButton1Click:Connect(function() NameInput.Text = player.Name end)
+		pButton.Parent = PlayersScroll
+        
+        task.spawn(function()
+            while pButton and pButton.Parent do
+                local hue = (tick() * 0.5) % 1
+                pButton.TextColor3 = Color3.fromHSV(hue, 1, 1)
+                task.wait(0.1)
+            end
+        end)
+	end
+end
+Players.PlayerAdded:Connect(updatePlayerList)
+Players.PlayerRemoving:Connect(updatePlayerList)
+updatePlayerList()
+
+-- [ تكملة باقي السكربت (الحماية، التايتل، التنقل، الإغلاق) ]
 local Tab4Frame = Instance.new("Frame")
 Tab4Frame.Size = UDim2.new(1, -24, 1, -85)
 Tab4Frame.Position = UDim2.new(0, 12, 0, 75)
@@ -498,7 +540,6 @@ ApplyButton.MouseButton1Click:Connect(function()
     end)
 end)
 
--- [ Tab 6 ]
 local Tab6Frame = Instance.new("Frame")
 Tab6Frame.Size = UDim2.new(1, -24, 1, -85)
 Tab6Frame.Position = UDim2.new(0, 12, 0, 75)
@@ -555,7 +596,6 @@ CustomActionButton.MouseButton1Click:Connect(function()
     end
 end)
 
--- [ منطق التنقل ]
 local function resetTabs()
 	Tab1Frame.Visible = false; Tab2Frame.Visible = false; Tab3Frame.Visible = false; Tab4Frame.Visible = false; Tab5Frame.Visible = false; Tab6Frame.Visible = false
 	local btns = {Tab1Button, Tab2Button, Tab3Button, Tab4Button, Tab5Button, Tab6Button}
@@ -571,24 +611,5 @@ Tab3Button.MouseButton1Click:Connect(function() resetTabs(); Tab3Frame.Visible =
 Tab4Button.MouseButton1Click:Connect(function() resetTabs(); Tab4Frame.Visible = true; Tab4Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10); Tab4Button.TextColor3 = Color3.fromRGB(255, 255, 255) end)
 Tab5Button.MouseButton1Click:Connect(function() resetTabs(); Tab5Frame.Visible = true; Tab5Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10); Tab5Button.TextColor3 = Color3.fromRGB(255, 255, 255) end)
 Tab6Button.MouseButton1Click:Connect(function() resetTabs(); Tab6Frame.Visible = true; Tab6Button.BackgroundColor3 = Color3.fromRGB(60, 10, 10); Tab6Button.TextColor3 = Color3.fromRGB(255, 255, 255) end)
-
-local function updatePlayerList()
-	for _, child in pairs(PlayersScroll:GetChildren()) do if child:IsA("TextButton") then child:Destroy() end end
-	for _, player in pairs(Players:GetPlayers()) do
-		local pButton = Instance.new("TextButton")
-		pButton.Size = UDim2.new(0, 95, 0, 30)
-		pButton.BackgroundColor3 = Color3.fromRGB(60, 10, 10)
-		pButton.Text = player.Name
-		pButton.TextColor3 = Color3.fromRGB(100, 255, 100)
-		pButton.Font = Enum.Font.GothamSemibold
-		pButton.TextSize = 10
-		Instance.new("UICorner", pButton).CornerRadius = UDim.new(0, 6)
-		pButton.MouseButton1Click:Connect(function() NameInput.Text = player.Name end)
-		pButton.Parent = PlayersScroll
-	end
-end
-Players.PlayerAdded:Connect(updatePlayerList)
-Players.PlayerRemoving:Connect(updatePlayerList)
-updatePlayerList()
 
 ToggleButton.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
